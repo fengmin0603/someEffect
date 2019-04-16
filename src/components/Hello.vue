@@ -1,14 +1,23 @@
 <template>
   <div class="container">
     <el-container>
-      <el-header>还没想好写点什么好～</el-header>
+      <el-header>
+        <el-tag type="success"><a href="https://listenfeng.github.io/#/">回到首页</a></el-tag>
+        <span>欢迎点阅~</span>
+        <span></span>
+      </el-header>
       <el-container>
         <el-aside width="200px">
           <Left @getLeft="getLeft"/>
         </el-aside>
-        <el-main>
-          <router-view/>
-        </el-main>
+        <el-container>
+          <el-main>
+            <router-view/>
+          </el-main>
+          <el-footer>
+            感谢 <el-tag type="success"><a href="https://www.w3cplus.com/css/pure-css-create-masonry-layout.html">https://www.w3cplus.com/css/pure-css-create-masonry-layout.html</a></el-tag>
+          </el-footer>
+        </el-container>
       </el-container>
     </el-container>
   </div>
@@ -42,6 +51,12 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  a{
+    color: #67c23a;
+  }
+  .el-tag{
+    cursor: pointer;
+  }
   .container, .el-container {
     height: 100%;
   }
@@ -49,10 +64,18 @@
   .el-header, .el-footer {
     /*background-color: #F56C6C;*/
     color: #333;
-    text-align: center;
-    line-height: 60px;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
     border:1px solid #F56C6C;
+  }
+  .el-header{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .el-footer{
+    border-left:none;
+    text-align: center;
+    line-height: 60px;
   }
 
   .el-aside {

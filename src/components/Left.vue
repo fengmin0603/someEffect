@@ -2,7 +2,7 @@
   <el-row class="tac">
     <el-col>
       <el-menu
-        default-active="1-2"
+        :default-active="active"
         class="el-menu-vertical-demo"
         @select="handleSelect"
         @open="handleOpen"
@@ -37,8 +37,23 @@
   export default {
     data() {
       return {
-        msg: 'Welcome to Your Vue.js App'
+        active: '1-1'
       }
+    },
+    created(){
+      console.log('created',this.$route);
+      let routeName = this.$route.name;
+      switch (routeName) {
+        case 'Masonry_multi_columns':
+          this.active = '1-1';
+          break;
+        case 'Masonry_flex':
+          this.active = '1-2';
+          break;
+      }
+    },
+    updated(){
+      console.log('updated');
     },
     methods: {
       handleOpen(key, keyPath) {
@@ -48,7 +63,6 @@
         console.log(key, keyPath);
       },
       handleSelect(index, indexPath){
-        console.log(index, indexPath);
         switch (index) {
           case '1-1':
             this.$emit('getLeft',{

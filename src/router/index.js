@@ -15,6 +15,7 @@ export default new Router({
       path: '/',
       name: 'Hello',
       component: Hello,
+      redirect:'/Masonry_multi_columns',
       children: [  //这里就是二级路由的配置
         {
           path: '/Masonry_multi_columns',

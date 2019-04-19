@@ -16,16 +16,19 @@
             <el-menu-item index="1-1">多列布局实现</el-menu-item>
             <el-menu-item index="1-2">flex实现</el-menu-item>
           </el-menu-item-group>
+          <el-menu-item-group>
+            <template slot="title">其他效果待续...</template>
+          </el-menu-item-group>
         </el-submenu>
 
         <el-submenu index="2">
           <template slot="title">
-            <span>Javascript</span>
+            <span>Vue实现的效果</span>
           </template>
           <el-menu-item-group>
-            <template slot="title">1</template>
-            <el-menu-item index="2-1">2</el-menu-item>
-            <el-menu-item index="2-2">3</el-menu-item>
+            <template slot="title">上传</template>
+            <el-menu-item index="2-1">按钮上传</el-menu-item>
+            <el-menu-item index="2-2">拖拽上传</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
       </el-menu>
@@ -37,11 +40,14 @@
   export default {
     data() {
       return {
-        active: '1-1'
+        active: '1-1',
+        thanksWord:{
+          Masonry_multi_columns:'https://www.w3cplus.com/css/pure-css-create-masonry-layout.html',
+          DragUpload:'杨泽坤'
+        }
       }
     },
     created(){
-      console.log('created',this.$route);
       let routeName = this.$route.name;
       switch (routeName) {
         case 'Masonry_multi_columns':
@@ -50,6 +56,9 @@
         case 'Masonry_flex':
           this.active = '1-2';
           break;
+        case 'DragUpload':
+          this.active = '2-2';
+          break
       }
     },
     updated(){
@@ -66,12 +75,20 @@
         switch (index) {
           case '1-1':
             this.$emit('getLeft',{
-              "page":'Masonry_multi_columns'
+              "page":'Masonry_multi_columns',
+              "msg": this.thanksWord.Masonry_multi_columns
             });
             break;
           case '1-2':
             this.$emit('getLeft',{
-              "page":'Masonry_flex'
+              "page":'Masonry_flex',
+              "msg": this.thanksWord.Masonry_multi_columns
+            });
+            break;
+          case '2-2':
+            this.$emit('getLeft',{
+              "page":'DragUpload',
+              "msg":this.thanksWord.DragUpload
             });
             break;
         }

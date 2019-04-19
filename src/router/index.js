@@ -5,6 +5,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import Hello from '@/components/Hello'
 import Masonry_multi_columns from '@/components/Masonry_multi_columns.vue';
 import Masonry_flex from '@/components/Masonry_flex.vue';
+import DragUpload from '@/components/DragUploadP';
 
 Vue.use(Router)
 Vue.use(ElementUI);
@@ -26,6 +27,11 @@ export default new Router({
           path: '/Masonry_flex',
           name: 'Masonry_flex',
           component: Masonry_flex
+        },
+        {
+          path: '/DragUpload',
+          name: 'DragUpload',
+          component: DragUpload
         }
       ]
     }

@@ -15,7 +15,7 @@
             <router-view/>
           </el-main>
           <el-footer>
-            感谢 <el-tag type="success"><a href="https://www.w3cplus.com/css/pure-css-create-masonry-layout.html">https://www.w3cplus.com/css/pure-css-create-masonry-layout.html</a></el-tag>
+            感谢 <el-tag type="success">{{msg}}</el-tag>
           </el-footer>
         </el-container>
       </el-container>
@@ -25,25 +25,22 @@
 
 <script>
   import Left from './Left.vue';
-  import Masonry_multi_columns from './Masonry_multi_columns.vue';
-  import Masonry_flex from './Masonry_flex.vue';
-
   export default {
     name: 'Hello',
     components: {
-      Left,
-      Masonry_multi_columns,
-      Masonry_flex
+      Left
     },
     data() {
       return {
-        msg: 'Welcome to Your Vue.js App'
+        msg: 'https://www.w3cplus.com/css/pure-css-create-masonry-layout.html',
+        href: ''
       }
     },
     methods:{
       getLeft(page){
         console.log("page",page);
         this.$router.push({path: '/' + page.page, query: {id: ''}});
+        this.msg = page.msg
       }
     }
   }
